@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://brbocbx7qat6e"]
+
+[ext_resource type="Texture2D" uid="uid://wkryniwpmb5k" path="res://assets/idle.png" id="1_b1xq2"]
+[ext_resource type="Script" uid="uid://wvnrdr6t67s7" path="res://scripts/unit.gd" id="1_cq4v0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq4v0"]
+atlas = ExtResource("1_b1xq2")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on614"]
+atlas = ExtResource("1_b1xq2")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhs1y"]
+atlas = ExtResource("1_b1xq2")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j20j"]
+atlas = ExtResource("1_b1xq2")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0xod"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq4v0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on614")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhs1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j20j")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50p1h"]
+size = Vector2(12, 12)
+
+[sub_resource type="Theme" id="Theme_cq4v0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_on614"]
+bg_color = Color(0, 0, 0, 0.443137)
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhs1y"]
+bg_color = Color(0.952941, 0.631373, 0, 0.882353)
+
+[node name="Unit" type="CharacterBody2D" groups=["Units"]]
+input_pickable = true
+script = ExtResource("1_cq4v0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v0xod")
+animation = &"IDLE"
+autoplay = "IDLE"
+frame_progress = 0.952377
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_50p1h")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -10.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = -7.0
+size_flags_horizontal = 0
+theme = SubResource("Theme_cq4v0")
+theme_override_styles/background = SubResource("StyleBoxFlat_on614")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fhs1y")
+value = 46.97
+fill_mode = 3
+show_percentage = false

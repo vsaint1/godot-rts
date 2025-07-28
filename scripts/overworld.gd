@@ -19,7 +19,7 @@ func _draw() -> void:
 	
 	selection_rect = Rect2(rect_pos,rect_size)
 	
-	draw_rect(selection_rect,Color(0.80, 0.36, 0.36, 0.5))
+	draw_rect(selection_rect, Color(0.80, 0.36, 0.36, 0.5))
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -37,4 +37,5 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion && is_drawing:
 		end_pos = event.position
 		queue_redraw()
+		UnitManager.selected_rect = selection_rect
 	
