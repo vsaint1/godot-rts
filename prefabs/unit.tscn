@@ -51,15 +51,16 @@ corner_detail = 2
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhs1y"]
 bg_color = Color(0.952941, 0.631373, 0, 0.882353)
 
-[node name="Unit" type="CharacterBody2D" groups=["Units"]]
+[node name="Unit" type="CharacterBody2D" groups=["Unit"]]
 input_pickable = true
+slide_on_ceiling = false
 script = ExtResource("1_cq4v0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v0xod")
 animation = &"IDLE"
 autoplay = "IDLE"
-frame_progress = 0.952377
+frame_progress = 0.79091
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_50p1h")
@@ -73,6 +74,5 @@ size_flags_horizontal = 0
 theme = SubResource("Theme_cq4v0")
 theme_override_styles/background = SubResource("StyleBoxFlat_on614")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fhs1y")
-value = 46.97
-fill_mode = 3
+value = 90.0
 show_percentage = false
